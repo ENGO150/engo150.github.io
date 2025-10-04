@@ -1,0 +1,43 @@
+body {
+		margin: 0;
+		background-color: #121212;
+		color: white;
+		font-family: "Roboto Mono", sans-serif;
+		display: flex;
+		justify-content: center;
+}
+
+.container {
+		max-width: 600px;
+		padding: 2rem;
+		margin-top: 3rem;
+		text-align: left;
+}
+
+h1 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+}
+
+p {
+		font-size: 0.9rem;
+		line-height: 1.6;
+}
+
+.links a {
+		display: inline-block;
+		color: #e0e0e0;
+		text-decoration: underline;
+		font-size: 0.85rem;
+		transition: color 0.2s ease;
+}
+
+.links p a {
+		color: #9ca3af;
+		text-decoration: none;
+}
+
+.links a:hover {
+		color: #bbbbbb;
+}
