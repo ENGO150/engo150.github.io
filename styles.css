@@ -80,6 +80,8 @@ p {
 
 #projects img {
     width: 7rem;
+    pointer-events: none;
+    user-select: none;
 }
 
 .project_info {
@@ -104,4 +106,9 @@ p {
     z-index: 1;
     text-decoration: none;
     color: inherit;
+}
+
+::selection {
+    background: #404040;
+    color: white;
 }
