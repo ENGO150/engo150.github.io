@@ -7,7 +7,7 @@ body {
     justify-content: center;
 }
 
-.container {
+#container {
     max-width: 600px;
     padding: 2rem;
     margin-top: 3rem;
@@ -32,7 +32,7 @@ p {
     line-height: 1.6;
 }
 
-.links a {
+#links a {
     display: inline-block;
     color: #e0e0e0;
     text-decoration: underline;
@@ -40,16 +40,16 @@ p {
     transition: color 0.2s ease;
 }
 
-.links p a {
+#links p a {
     color: #9ca3af;
     text-decoration: none;
 }
 
-.links a:hover {
+#links a:hover {
     color: #bbbbbb;
 }
 
-.projects > div {
+#projects > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,20 +65,20 @@ p {
     transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
-.projects > div:hover {
+#projects > div:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     transform: translateY(-4px);
     background-color: #1c1c1c;
 }
 
-.projects h3 {
+#projects h3 {
     color: white;
     margin: 0 0 0.5rem 0;
     font-size: 1.2rem;
     font-weight: 700;
 }
 
-.projects img {
+#projects img {
     width: 7rem;
 }
 
