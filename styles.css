@@ -91,6 +91,10 @@ p {
 	cursor: pointer;
 }
 
+.project:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
 .project_link {
 	position: absolute;
 	top: 0;
