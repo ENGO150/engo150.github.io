@@ -22,7 +22,7 @@
             <a href="https://git.satan.red/ENGO150" target="_blank">GitLab</a>
             <a href="https://github.com/ENGO150" target="_blank">GitHub</a>
             <a href="https://discord.com/users/634385503956893737" target="_blank">Discord</a>
-            <p>Email: <a href="mailto:engo@satan.red">engo@satan.red</a></p>
+            <p>Email: <a id="contact" href=""><em>[Enable JavaScript to view]</em></a></p>
         </div>
 
         <div id="projects">
@@ -39,5 +39,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const contact = document.getElementById("contact");
+        const mail = atob("ZW5nb0BzYXRhbi5yZWQ=");
+        contact.setAttribute("href", "mailto:" + mail);
+        contact.innerText = mail;
+    </script>
 </body>
 </html>
