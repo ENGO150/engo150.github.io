@@ -112,3 +112,15 @@ p {
     background: #404040;
     color: white;
 }
+
+@media screen and (max-width: 600px) {
+    #projects > div {
+        box-sizing: border-box;
+        height: auto;
+        padding-right: 1rem;
+    }
+
+    #projects .project_info {
+        width: 60%;
+    }
+}
