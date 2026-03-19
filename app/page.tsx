@@ -114,7 +114,7 @@ export default function Portfolio() {
             <ProjectCard
               title="WHY2"
               description="Lightweight, fast, secure, and easy to use encryption system."
-              iconSrc="https://satan.red/res/logo.png"
+              iconSrc="/res/logo.png"
               href="https://why2.satan.red"
             />
           </div>

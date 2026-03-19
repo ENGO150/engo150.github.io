@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Václav Šmejkal',
   description: 'I create problems to build software that solves them. I care deeply about privacy, cryptography and automation.',
   icons: {
-    icon: 'https://satan.red/res/favicon.ico',
+    icon: '/res/favicon.ico',
   },
 }
 
