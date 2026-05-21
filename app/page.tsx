@@ -67,8 +67,7 @@ export default function Portfolio() {
             Václav Šmejkal
           </h1>
           <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-            I create problems to build software that solves them. I care deeply
-            about privacy, cryptography and automation.
+            I create problems to build software that solves them.
           </p>
         </header>
 
