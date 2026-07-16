@@ -89,4 +89,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  ::selection {
+    background-color: #333333;
+    color: var(--foreground);
+  }
 }
