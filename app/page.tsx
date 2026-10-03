@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Image from "next/image"
 import { Github, Instagram, MessageCircle } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 function GitLabIcon({ className }: { className?: string }) {
   return (
@@ -37,7 +37,6 @@ function MailIcon({ className }: { className?: string }) {
 
 export default function Portfolio() {
   const [email, setEmail] = useState<string | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     // Base64 encoded email to prevent bot scraping
@@ -50,66 +49,51 @@ export default function Portfolio() {
   }, [])
 
   return (
-    <main className="relative min-h-screen bg-background text-foreground overflow-hidden">
-      {/* Full-screen subtle blur that moves opposite to mouse */}
-      <div
-        className="pointer-events-none fixed inset-[-50%] bg-gradient-radial from-white/[0.025] to-transparent"
-        style={{
-          transform: `translate(${-mousePosition.x * 40}px, ${-mousePosition.y * 40}px)`,
-          transition: "transform 0.5s ease-out",
-        }}
-      />
+    <main className="page">
+      <ThemeToggle />
 
-      <div className="mx-auto max-w-2xl px-6 py-24 md:py-32">
+      <div className="wrap">
         {/* Header section */}
-        <header className="mb-16">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl text-balance">
-            Václav Šmejkal
-          </h1>
-          <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-            I create problems to build software that solves them.
-          </p>
+        <header className="intro">
+          <h1>Václav Šmejkal</h1>
+          <p>I create problems to build software that solves them.</p>
         </header>
 
         {/* Social links */}
-        <section className="mb-16">
-          <div className="flex flex-wrap gap-3">
+        <section className="socials">
+          <SocialLink
+            href="https://git.satan.red/ENGO150"
+            icon={<GitLabIcon className="icon" />}
+            label="GitLab"
+          />
+          <SocialLink
+            href="https://github.com/ENGO150"
+            icon={<Github className="icon" />}
+            label="GitHub"
+          />
+          <SocialLink
+            href="https://discord.com/users/634385503956893737"
+            icon={<MessageCircle className="icon" />}
+            label="Discord"
+          />
+          <SocialLink
+            href="https://instagram.com/engo_150"
+            icon={<Instagram className="icon" />}
+            label="Instagram"
+          />
+          {email && (
             <SocialLink
-              href="https://git.satan.red/ENGO150"
-              icon={<GitLabIcon className="h-5 w-5" />}
-              label="GitLab"
+              href={`mailto:${email}`}
+              icon={<MailIcon className="icon" />}
+              label="Email"
             />
-            <SocialLink
-              href="https://github.com/ENGO150"
-              icon={<Github className="h-5 w-5" />}
-              label="GitHub"
-            />
-            <SocialLink
-              href="https://discord.com/users/634385503956893737"
-              icon={<MessageCircle className="h-5 w-5" />}
-              label="Discord"
-            />
-            <SocialLink
-              href="https://instagram.com/engo_150"
-              icon={<Instagram className="h-5 w-5" />}
-              label="Instagram"
-            />
-            {email && (
-              <SocialLink
-                href={`mailto:${email}`}
-                icon={<MailIcon className="h-5 w-5" />}
-                label="Email"
-              />
-            )}
-          </div>
+          )}
         </section>
 
         {/* Projects section */}
         <section>
-          <h2 className="mb-6 text-xl font-semibold tracking-tight">
-            Projects
-          </h2>
-          <div className="grid gap-4">
+          <h2 className="projects-title">Projects</h2>
+          <div className="projects">
             <ProjectCard
               title="WHY2"
               description="Lightweight, fast, secure, and easy to use encryption system."
@@ -137,15 +121,11 @@ function SocialLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-2 rounded-xl border border-border/50 bg-card/50 px-4 py-2.5 backdrop-blur-sm transition-all duration-300 hover:border-border hover:bg-card/80 hover:shadow-lg hover:shadow-white/[0.02]"
+      className="social"
       aria-label={label}
     >
-      <span className="text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-        {icon}
-      </span>
-      <span className="text-sm font-medium text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-        {label}
-      </span>
+      {icon}
+      <span>{label}</span>
     </a>
   )
 }
@@ -166,42 +146,30 @@ function ProjectCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex items-start gap-4 rounded-2xl border border-border/50 bg-card/50 p-5 backdrop-blur-md transition-all duration-300 select-none hover:-translate-y-1 hover:border-border hover:bg-card/80 hover:shadow-xl hover:shadow-white/[0.03]"
+      className="project"
       draggable="false"
     >
-      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105 pointer-events-none">
-        <Image
-          src={iconSrc}
-          alt={`${title} icon`}
-          width={56}
-          height={56}
-          className="h-full w-full object-contain"
-          draggable={false}
-          unoptimized
-          loading="eager"
-        />
+      <span
+        className="project-icon"
+        style={{ WebkitMaskImage: `url(${iconSrc})`, maskImage: `url(${iconSrc})` }}
+        aria-label={`${title} icon`}
+        role="img"
+      />
+      <div className="project-body">
+        <h3>{title}</h3>
+        <p>{description}</p>
       </div>
-      <div className="min-w-0 flex-1">
-        <h3 className="mb-1 text-base font-semibold tracking-tight text-foreground transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {description}
-        </p>
-      </div>
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-muted-foreground">
-        <svg
-          className="h-5 w-5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          viewBox="0 0 24 24"
-        >
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </div>
+      <svg
+        className="project-arrow"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        viewBox="0 0 24 24"
+      >
+        <path d="m9 18 6-6-6-6" />
+      </svg>
     </a>
   )
 }
