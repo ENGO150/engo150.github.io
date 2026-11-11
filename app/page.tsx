@@ -62,14 +62,14 @@ export default function Portfolio() {
         {/* Social links */}
         <section className="socials">
           <SocialLink
-            href="https://git.satan.red/ENGO150"
-            icon={<GitLabIcon className="icon" />}
-            label="GitLab"
-          />
-          <SocialLink
             href="https://github.com/ENGO150"
             icon={<Github className="icon" />}
             label="GitHub"
+          />
+          <SocialLink
+            href="https://git.satan.red/ENGO150"
+            icon={<GitLabIcon className="icon" />}
+            label="Mirror"
           />
           <SocialLink
             href="https://discord.com/users/634385503956893737"
